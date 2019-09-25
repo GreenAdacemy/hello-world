@@ -12,7 +12,6 @@ class HeaderComponent extends React.Component {
   render() {
     return (
       <React.Fragment>        
-        <div className='btn btn-primary'>{ locale.calc }</div>
       </React.Fragment>
     )
   }

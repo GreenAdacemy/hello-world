@@ -4,18 +4,28 @@ import './App.scss';
 import HeaderComponent from './components/header/header';
 import MenuBar from './components/menu-bar/menu-bar';
 import { locale } from './config/locale'
+import MainRouter from './config/router';
+import Cookies from 'universal-cookie';
 
 const globalSystem = require('./config/global')
+const cookie = new Cookies()
 
 class App extends React.Component {
   constructor() {
     super()
     this.initGlobalSystem()
   }
+  
+  componentDidMount() {
+    console.log('componentDidMount')
+    cookie.addChangeListener((name, value) => {
+      console.log(name, value)
+    })
+  }
 
   initGlobalSystem = () => {
     globalSystem.user = 'Ngo Hoai Phuong'
-    globalSystem.lang = 'vi'
+    globalSystem.lang = cookie.get('lang') !== undefined ? cookie.get('lang') : 'vi'
     locale.setLanguage(globalSystem.lang)
   }
 
@@ -24,7 +34,7 @@ class App extends React.Component {
       <div className='App'>
         <MenuBar></MenuBar>
         <HeaderComponent></HeaderComponent>
-        <div className='btn btn-primary'>{globalSystem.lang}</div>
+        <MainRouter></MainRouter>
       </div>
     )
   }
