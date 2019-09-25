@@ -9,23 +9,21 @@ import ContactPage from '../pages/contact/contact';
 import AboutPage from '../pages/about/about';
 
 const MainRouter = () => (
-  <main>
-    <Switch>
-      <Route exact path='/' render={
-        () => (
-          <Auth
-            orRedirectTo='/login' orRender={
-              <HomePage></HomePage>
-            }></Auth>
-        )
-      }></Route>
-      <Route path='/login' component={LoginPage}></Route>
-      <Route path='/course' component={CoursePage}></Route>
-      <Route path='/hiring' component={HirePage}></Route>
-      <Route path='/contact' component={ContactPage}></Route>
-      <Route path='/about' component={AboutPage}></Route>
-      <Route path='/home' component={HomePage}></Route>
-    </Switch>
-  </main>
+  <Switch>
+    <Route exact path='/' render={
+      () => (
+        <Auth
+          orRedirectTo='/login' orRender={
+            <HomePage></HomePage>
+          }></Auth>
+      )
+    }></Route>
+    <Route path='/login' component={LoginPage}></Route>
+    <Route path='/course' component={CoursePage}></Route>
+    <Route path='/hiring' component={HirePage}></Route>
+    <Route path='/contact' component={ContactPage}></Route>
+    <Route path='/about' component={AboutPage}></Route>
+    <Route path='/home' component={HomePage}></Route>
+  </Switch>
 )
 export default MainRouter
