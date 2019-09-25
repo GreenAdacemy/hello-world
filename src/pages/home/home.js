@@ -2,7 +2,6 @@ import React from 'react'
 import './home.scss'
 import { locale } from '../../config/locale';
 import { Button } from 'react-bootstrap';
-import { ListenService } from '../../services/listen';
 
 class HomePage extends React.Component {
   constructor() {
@@ -10,11 +9,6 @@ class HomePage extends React.Component {
   }
 
   componentDidUpdate() {
-    ListenService.onSwitchLang().subscribe(
-      () => {
-        this.setState({})
-      }
-    )
   }
 
   refresh = () => {

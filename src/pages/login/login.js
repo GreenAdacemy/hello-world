@@ -1,6 +1,5 @@
 import React from 'react'
 import './login.scss'
-import { ListenService } from '../../services/listen';
 import { locale } from '../../config/locale';
 
 class LoginPage extends React.Component {
@@ -9,11 +8,6 @@ class LoginPage extends React.Component {
   }
 
   componentDidMount() {
-    ListenService.onSwitchLang().subscribe(
-      () => {
-        this.setState({})
-      }
-    )
   }
 
   render() {
