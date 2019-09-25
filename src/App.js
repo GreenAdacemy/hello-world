@@ -6,6 +6,7 @@ import MenuBar from './components/menu-bar/menu-bar';
 import { locale } from './config/locale'
 import MainRouter from './config/router';
 import Cookies from 'universal-cookie';
+import { ListenService } from './services/listen';
 
 const globalSystem = require('./config/global')
 const cookie = new Cookies()
@@ -17,10 +18,11 @@ class App extends React.Component {
   }
   
   componentDidMount() {
-    console.log('componentDidMount')
-    cookie.addChangeListener((name, value) => {
-      console.log(name, value)
-    })
+    ListenService.onSwitchLang().subscribe(
+      () => {
+        this.setState({})
+      }
+    )
   }
 
   initGlobalSystem = () => {

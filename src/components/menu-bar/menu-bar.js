@@ -5,6 +5,7 @@ import { locale } from '../../config/locale'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import Cookies from 'universal-cookie';
+import { ListenService } from '../../services/listen';
 
 const globalSystem = require('../../config/global')
 
@@ -19,6 +20,7 @@ class MenuBar extends React.Component {
     locale.setLanguage(lang)
     this.setState({})
     cookie.set('lang', lang)
+    ListenService.switchLang(lang)
   }
 
   checkCurrentLangActive = (lang) => {
